@@ -1,0 +1,88 @@
+<!-- 学到的知识
+	1.line-height
+	normal	默认。设置合理的行间距。
+	number	设置数字，此数字会与当前的字体尺寸相乘来设置行间距。
+	length	设置固定的行间距。
+	%		基于当前字体尺寸的百分比行间距。
+	inherit	规定应该从父元素继承 line-height 属性的值。
+ -->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<title>设计稿实现</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatable" content="IE=Edge">
+
+	<style type="text/css">
+		html,body{
+			height: 100%;
+		}
+
+		*{
+			margin: 0px;
+			padding: 0px;
+
+			box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+		}
+
+		.container{
+			height: 100%;
+		}
+
+		.headarea{
+			height: 10%;
+			background-color: #000000;
+			color: white;
+		}
+
+		.wrap{
+			height: 100%;
+			width: 960px;
+			margin: 0 auto;
+		}
+
+		.logo{
+			float: left;
+			width: 50%;
+			height: 100%;
+			text-align: center;
+			display: table-cell;
+			vertical-align: center;
+			font-weight: bold;
+			font-size: 20px;
+		}
+
+		.navbar{
+			float: left;
+			width: 50%;
+			height: 100%;
+		}
+
+		.navbar a{
+			color: white;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<!-- 头部 -->
+		<header class="headarea">
+			<!-- 960px定宽区域 -->
+			<div class="wrap">
+				<!-- logo -->
+				<div class="logo">LOGO</div>
+				<!-- 右上角导航 -->
+				<nav class="navbar">
+					<a href="#">Github</a>
+					<a href="#">Register</a>
+					<a href="#">Login</a>
+				</nav>
+			</div>
+		</header>
+	</div>
+</body>
+</html>

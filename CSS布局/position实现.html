@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<title>position实现</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatable" content="IE=Edge">
+
+	<style type="text/css">
+		html,body{
+			height: 100%;
+		}
+
+		*{
+			margin: 0px;
+			padding: 0px;
+			box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+		}
+
+		.container{
+			height: 100%;
+			border: 5px solid black;
+			position: relative;
+		}
+		
+		.left-fix{
+			width: 100px;
+			background-color: blue;
+			position: absolute;
+			left: 0px;
+			height: 100%;
+		}
+
+		.right-fix{
+			width: 100px;
+			background-color: yellow;
+			position: absolute;
+			right: 0px;
+			height: 100%;
+		}
+
+		.middle-auto{
+			background-color: red;
+			position: absolute;
+			left: 100px;
+			height: 100%;
+			width: calc(100% - 200px);
+		}
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="left-fix">
+			左栏固定
+		</div>
+		<div class="middle-auto">
+			中间自适应
+		</div>
+		<div class="right-fix">
+			右栏固定
+		</div>
+	</div>
+</body>
+</html>

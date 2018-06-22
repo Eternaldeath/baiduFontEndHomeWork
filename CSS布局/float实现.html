@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<title>float实现CSS布局</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatable" content="IE=Edge">
+</head>
+<style type="text/css">
+	html,body{
+		height: 100%;
+	}
+
+	*{
+		margin: 0px;
+		padding: 0px;
+		-webkit-box-sizing:border-box; 
+		-moz-box-sizing: border-box; 
+		box-sizing: border-box;
+	}
+
+	.container{
+		border: 5px solid black;
+		height: 100%;
+	}
+
+	/* 第一个 */
+	.left-30{
+		float: left;
+		width: 30%;
+		height: 100%;
+		background-color: blue;
+	}
+
+	.right-70{
+		float: left;
+		width: 70%;
+		height: 100%;
+		background-color: yellow;
+	}
+
+	/* 第二个 */
+	.left-fix{
+		float: left;
+		width: 100px;
+		height: 100%;
+		background-color: red;
+	}
+
+	.right-auto{
+		float: left;
+		width: calc(100% - 100px);
+		height: 100%;
+		background-color: green;
+	}
+
+	/* 第三个 */
+	.th-left-fix{
+		float: left;
+		width: 100px;
+		height: 100%;
+		background-color: orange;
+	}
+
+	.th-middle-auto{
+		float: left;
+		width: calc(100% - 200px);
+		height: 100%;
+		background-color: pink;
+	}
+
+	.th-right-fix{
+		float: left;
+		width: 100px;
+		height: 100%;
+		background-color: blue;
+	}
+
+
+</style>
+<body>
+	<div class="container">
+		<div class="left-30">
+			两栏布局-左栏，占30%；
+		</div>		
+		<div class="right-70">
+			两栏布局-右栏，占70%；
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="left-fix">
+			两栏布局-左栏，固定宽度；
+		</div>		
+		<div class="right-auto">
+			两栏布局-右栏，自适应变化；
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="th-left-fix">
+			三栏布局-左栏，固定宽度；
+		</div>
+		<div class="th-middle-auto">
+			三栏布局-中栏，自适应变化
+		</div>		
+		<div class="th-right-fix">
+			三栏布局-右栏，固定宽度；
+		</div>
+	</div>
+</body>
+</html>
