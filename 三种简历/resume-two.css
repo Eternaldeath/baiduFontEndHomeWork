@@ -1,0 +1,51 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+.resume-title{
+	background-color: grey;
+	padding: 30px;
+	font-size: 10px;
+	color: white;
+}
+
+.basic-info,
+.contact-info,
+.ability-dec,
+.edu,
+.project-experience{
+	height: 100px;
+	border: 1px solid lightgray;
+	padding-bottom: 1px;
+} 
+
+.basic-info h2,
+.contact-info h2,
+.ability-dec h2,
+.edu h2,
+.project-experience h2{
+	background-color: lightgray;
+	float: left;
+	display: inline-block;
+	height: 100px;
+	font-size: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	line-height: 100px;
+
+}
+
+.basic-info div,
+.contact-info div,
+.ability-dec div,
+.edu div,
+.project-experience div{
+	overflow: auto;
+	padding-left: 10px;
+} 
+
+.prefix,h6{
+	font-weight: bold;
+	margin-right: 20px;
+}

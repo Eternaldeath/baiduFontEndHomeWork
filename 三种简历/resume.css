@@ -1,0 +1,38 @@
+.prefix{
+	font-weight: bold;
+	margin-right: 10px;
+}
+
+.outSide{
+	overflow: hidden;
+	border: 1px solid black;
+}
+
+
+
+.resume-title{
+	width: 15%;
+	text-align: center;
+	background-color: lightblue;
+	float: left;
+	color: white;
+	padding-bottom: 2000px;
+	margin-bottom: -2000px;
+}
+
+.resume-text{
+	width: 85%;
+	overflow: auto;
+	padding-bottom: 2000px;
+	margin-bottom: -2000px;
+}
+
+
+
+.basic-info,
+.contact-info,
+.ability-dec,
+.edu,
+.project-experience{
+	margin-left: 10px;
+}
