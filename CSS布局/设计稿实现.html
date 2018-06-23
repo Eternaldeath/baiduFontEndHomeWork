@@ -29,11 +29,12 @@
 		}
 
 		.container{
-			height: 100%;
+			/* height: 100%; */
 		}
 
+		/* 头部 */
 		.headarea{
-			height: 10%;
+			height: 100px;
 			background-color: #000000;
 			color: white;
 		}
@@ -47,13 +48,13 @@
 		.logo{
 			float: left;
 			width: 50%;
-			height: 100%;
 			text-align: center;
-			display: table-cell;
-			vertical-align: center;
 			font-weight: bold;
 			font-size: 20px;
+			height: 100%;
+			line-height: 100px;
 		}
+
 
 		.navbar{
 			float: left;
@@ -63,6 +64,145 @@
 
 		.navbar a{
 			color: white;
+
+		}
+
+		.navbar div{
+			text-align: center;
+		}
+
+		/* Banner */
+		.banner{
+			height: 300px;
+			background-color: #00A600;
+		}
+
+		.right-area{
+			width: 50%;
+			height: 100%;
+			float: right;
+		}
+
+		.page-number-area{
+			text-align: center;
+			position: relative;
+			bottom: -240px;
+		}
+		
+		.page-number-area span{
+			border: 1px solid black;
+			background-color: #ECECFF;
+			display: inline-block;
+			height: 40px;
+			width: 40px;
+			transition:  0.5s;
+			-webkit-transition:  0.5s; 
+			-moz-transition: 0.5s;
+		}
+
+		.page-number-area span:hover{
+			height: 50px;
+			width: 30px;
+		}
+
+		/* 主导航 */
+		.mainnav{
+			height: 100px;
+		}
+
+		.mainnav-left{
+			width: 200px;
+			float: left;
+		}
+		
+
+		.mainnav-right{
+			width: calc(100% - 450px);
+			float: left;
+		}
+
+		.mainnav-middle{
+			height: 100%;
+			width: 250px;
+			float: left;
+		}
+
+		.mainnav-left,.mainnav-right{
+			height: 100%;
+			border-bottom: 1px solid lightgrey;
+		}
+
+		.mainnav-middle div{
+			position: relative;
+			width: 83px;
+			top: 50px;
+			height: 50%;
+			float: left;
+			border: 1px solid lightgrey;
+			border-top-right-radius: 10px;
+			border-top-left-radius: 10px;
+			font-size: 10px;
+			font-weight: bold;
+			text-align: center;
+			line-height: 25px;
+			background-color: #F0F0F0;
+		}
+		
+		.mainnav-middle div:hover{
+			border-bottom: none;
+			background-color: #FFFFFF;
+		}
+
+		/* 主内容区 */
+		.maincontent{
+			width: 100%;
+			height: 550px;
+		}
+		
+		.wrap-maincontent{
+			width: 70%;
+			height: 90%;
+			margin: 0 auto;
+
+		}
+
+		.contentareaone,.contentareatwo,.contentareathree{
+			width: 100%;
+			height: 166px;
+		}
+
+		.contentareaone .content,.contentareatwo .content{
+			width: 31%;
+			margin-left: 10px;
+			margin-top: 10px;
+		}
+
+		.contentareathree .content{
+			width: 23.5%;
+			margin-left: 5px;
+			margin-top: 10px;
+		}
+
+
+
+		.content{
+			float: left;
+			height: 100%;
+			text-align: center;
+			line-height: 83px;
+			border: 1px solid lightgrey;
+		}
+
+		/* 底部 */
+		.footerbottom{
+			height: 150px;
+			background-color: #8E8E8E;
+			color: white;
+		}
+
+		.footerbottom p{
+			padding-top: 10px;
+			text-align: center;
 		}
 
 	</style>
@@ -74,15 +214,73 @@
 			<!-- 960px定宽区域 -->
 			<div class="wrap">
 				<!-- logo -->
-				<div class="logo">LOGO</div>
+				<div class="logo">
+					<p>LOGO</p>
+				</div>
 				<!-- 右上角导航 -->
 				<nav class="navbar">
-					<a href="#">Github</a>
-					<a href="#">Register</a>
-					<a href="#">Login</a>
+					<div>
+						<a href="#">Github</a>
+						<a href="#">Register</a>
+						<a href="#">Login</a>
+					</div>
+
 				</nav>
 			</div>
 		</header>
+
+		<!-- Banner -->
+		<div class="banner">
+			<div class="right-area">
+				<div class="page-number-area">
+					<span>1</span>
+					<span>2</span>
+					<span>3</span>
+					<span>4</span>
+				</div>
+			</div>
+		</div>
+
+		<!-- 主导航 -->
+		<nav class="mainnav">
+			<div class="mainnav-left"></div>
+			<div class="mainnav-middle">
+				<div>HOME</div>
+				<div>PROFILE</div>
+				<div>ABOUT</div>
+			</div>
+			<div class="mainnav-right"></div>
+		</nav>
+
+		<!--主内容区  -->
+		<section class="maincontent">
+			<div class="wrap-maincontent">
+				<div class="contentareaone">
+					<div class="content">Content1</div>
+					<div class="content">Content2</div>
+					<div class="content">Content3</div>
+				</div>
+				<div class="contentareatwo">
+					<div class="content">Content4</div>
+					<div class="content">Content5</div>
+					<div class="content">Content6</div>
+				</div>
+				<div class="contentareathree">
+					<div class="content">Content7</div>
+					<div class="content">Content8</div>
+					<div class="content">Content9</div>
+					<div class="content">Content10</div>
+				</div>
+				
+				
+				
+			</div>
+		</section>
+
+		<!-- 底部 -->
+		<footer class="footerbottom">
+			<p>© 2018 ife.baidu.com</p>
+		</footer>
 	</div>
 </body>
 </html>
