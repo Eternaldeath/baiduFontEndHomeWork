@@ -1,0 +1,478 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+
+html,body{
+	height: 100%;
+}
+
+section{
+	height: 100%;
+}
+
+/* 第一页 */
+.first-page{
+	background-image: url("images/first-picture.jpg");
+	background-size: 100% 100%;
+}
+
+.f-wrap{
+	width: 80%;
+	height: 100%;
+	margin: 0 auto;
+}
+
+.f-head{
+	color: white;
+	font-size: 46px;
+	font-weight: bold;
+	text-align: center;
+	height: 300px;
+	line-height: 300px;
+}
+
+.f-content{
+	height: 200px;
+	color: white;
+	font-weight: bold;
+	font-size: 19px;
+	text-align: center;
+}
+
+.f-login{
+	height: calc(100% - 500px);
+	display: flex;
+	align-items: center;
+}
+
+.f-login-table{
+	width: 80%;
+	height: 80%;
+	margin: 0 auto;
+	margin-top: -20px;
+}
+
+.f-login-top h4,.f-login-top p{
+	text-align: center;
+}
+
+.f-login-top h4{
+	color: #FFFFFF;
+	margin-bottom: 5px;
+}
+
+.f-login-top p{
+	color: #9D9D9D;
+}
+
+.f-login-bottom{
+	margin-top: 10px;
+}
+
+.login-form{
+	display: flex;
+	justify-content: center;
+}
+
+.login-form div{
+	padding-left: 10px;
+}
+
+.login-form input{
+	height: 40px;
+	width: 200px;
+	border: 1px solid #ADADAD;
+	outline: none;
+	background-color: transparent;
+}
+
+#f-form-button{
+	width: 100px;
+	background-color: white;
+}
+
+/* second-page */
+.s-wrap{
+	width: 80%;
+	height: 100%;
+	margin: 0 auto;
+}
+
+.s-small-expressions{
+	font-size: 10px;
+	font-weight: bold;
+	height: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+}
+
+.s-big-headline{	
+	font-size: 40px;
+	text-align: center;
+}
+
+.s-introduce{
+	padding-top: 5px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.s-intr-mobile,
+.s-intr-access,
+.s-intr-fluid,
+.s-intr-custom{
+	display: flex;
+	flex-direction: row;
+	width: 50%;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-right: 5px;
+}
+
+.s-intr-ico{
+	padding-right: 5px;
+}
+
+.s-intr-smallhead{
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+/* thrid-page */
+.thrid-page{
+	background-image: url("images/thrid-picture.jpg");
+	background-size: 100% 100%;
+	display: flex;
+	flex-direction: row;
+}
+
+.t-left{
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+}
+
+.t-left-wrap{
+	width: 70%;
+	height: 70%;
+	margin: 30px auto;
+}
+
+.t-bighead,
+.t-intr,
+.t-check{
+	margin-bottom: 20px;
+}
+
+.t-bighead{
+	font-size: 36px;
+}
+
+.t-intr{
+	color: #8E8E8E;
+}
+
+.t-check #t-check-left{
+	background-color: 	#FFFFFF;
+	height: 70px;
+	width: 200px;
+}
+
+.t-check #t-check-right{ 
+	background-color: 	transparent;
+	height: 70px;
+	width: 200px;
+}
+
+.t-right{
+	width: 50%;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.t-right-wrap{
+	margin-top: 50px;
+	width: 80%;
+	height: 80%;
+	border: 1px solid #9D9D9D;
+	border-right: none;
+	border-radius: 20px;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.t-images{
+	width: 90%;
+	height: 80%;
+	border: 1px solid #9D9D9D;
+	border-right: none;
+	background-image: url('images/screen.png');
+}
+
+/* fourth-page */
+.fourth-wrap{
+	width: 90%;
+	height: 100%;
+	margin: 0 auto;
+}
+
+.f-bighead{
+	text-align: center;
+	line-height: 150px;
+	font-size: 36px;
+}
+
+.f-content{
+	display: flex;
+	flex-direction: row;
+	height: 500px;
+	justify-content: center;
+}
+
+.f-content-page{
+	width: 30%;
+	display: flex;
+	flex-direction: column;
+}
+
+.f-icon{
+	height: 10%;
+	width: 70%;
+	margin: 0 auto;
+	background-size: 100% 100%;
+}
+
+.f-icon-1{
+	background-image: url('images/icon1.png');
+}
+
+.f-icon-2{
+	background-image: url('images/icon2.png');
+}
+
+.f-icon-3{
+	background-image: url('images/icon3.png');
+}
+
+.f-intr{
+	height: 90%;
+	padding-top: 35px;
+	color: black;
+	font-size: 16px;
+}
+
+/* fifth-page */
+.fifth-page{
+	border-top: 1px solid #9D9D9D;
+}
+
+.fifth-wrap{
+	height: 100%;
+	width: 90%;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.fif-top,
+.fif-bottom{
+	height: 50%;
+	width: 90%;
+	display: flex;
+	flex-direction: row;
+}
+
+.fif-top img,
+.fif-bottom img{
+	width: 70%;
+	height: 70%;
+}
+
+.fif-picture1{
+	width: 50%;
+	padding-top: 50px;
+}
+.fif-intr{
+	width: 50%;
+	padding-top: 50px;
+}
+
+/* sixth-page */
+.sixth-page{
+		border-top: 1px solid #d0d0d0;
+		border-bottom: 1px solid #d0d0d0;
+}
+
+.sixth-wrap{
+	width: 80%;
+	height: 100%;
+	margin: 0 auto;
+}
+
+.six-head{
+	padding-top: 50px;
+}
+
+.six-bighead{
+	font-size: 36px;
+	text-align: center;
+}
+
+.six-smallhead{
+	color: #d0d0d0;
+	font-weight: bold;
+	text-align: center;
+}
+
+.six-picture{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	height: 70%;
+	overflow: hidden;
+}
+
+.six-picture-wrap{
+	position: relative;
+	margin: 50px;
+}
+
+.six-big-picture{
+	width: 250px;
+	height: 150px;
+}
+
+.six-cover{
+	width: 250px;
+	height: 150px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	color: white;
+	background-color: black;
+	opacity: 0.3;
+	visibility: hidden;
+}
+
+.six-icon img{
+	width: 50px;
+	margin: 15px;
+}
+
+.six-name{
+	text-align: center;
+	font-size: 25px;
+	height: 30%;
+}
+
+.six-job{
+	text-align: center;
+	height: 30%;
+}
+
+.six-icon{
+	display: flex;
+	justify-content: center;
+	height: 30%;
+}
+
+.six-picture-wrap:hover .six-cover{
+	visibility: visible;
+}
+
+/* seventh-page */
+.seven-wrap{
+	width: 80%;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: row;
+	height: 100%;
+}
+
+.sev-table{
+	width: 50%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+
+.sev-input{
+	height: 90%;
+	display: flex;
+	flex-direction: column;
+}
+
+.sev-bighead{
+	font-size: 20px;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+.sev-inputmain{
+	width: 400px;
+	height: 70px;
+	margin-bottom: 10px;
+	border: 1px solid 	#ADADAD;
+	outline: none;
+}
+
+.sev-inputnotmain{
+	width: 400px;
+	height: 300px;
+	margin-bottom: 10px;
+	border: 1px solid 	#ADADAD;
+	outline: none;
+}
+
+.sev-submit{
+	background-color: black;
+	color: #ffffff;
+	outline: none;
+	height: 70px;
+	width: 400px;
+}
+
+.sev-content{
+	display: flex;
+	flex-direction: column;
+	align-content: center;
+	padding-left: 30px;
+}
+
+.sev-bighead2{
+	margin-top: 30px;
+	font-size: 36px;
+	text-align: center;
+}
+
+.sev-intr{
+	margin-top: 10px;
+	color: 	#d0d0d0;
+}
+
+.sev-info{
+	margin-top: 50px;
+	display: flex;
+	flex-direction: column;
+}
+
+.sev-infosame{
+	display: flex;
+	flex-direction: row;
+}
+
+.sev-icon,.sev-icon img{
+	width: 50px;
+}
