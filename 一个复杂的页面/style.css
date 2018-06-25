@@ -1,0 +1,137 @@
+*{
+	margin: 0px;
+	padding: 0px;
+
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+
+	overflow: hidden;
+}
+
+html,body{
+	height: 100%;
+}
+
+.container{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+}
+
+/* 左侧增加栏 */
+.add-bar{
+	width: 7%;
+	background-color: #003D79;
+	display: flex;
+	flex-direction: column;
+}
+
+.add-bar-icon{
+	width: 100%;
+	height: 80%;
+	display: flex;
+	flex-direction: column;
+	padding-top: 20px;
+}
+
+.add-bar-tool{
+	width: 100%;
+	height: 20%;
+}
+
+.add-dis-icon{
+	text-align: center;
+	margin-top: 5px;
+}
+
+.add-dis-icon img{
+	width: 30px;
+	cursor: pointer;
+}
+
+.add-bar-tool{
+	display: flex;
+	align-items: flex-end;
+}
+
+.add-bar-blacket{
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.blacker-icon img{
+	width: 20px;
+	cursor: pointer;
+}
+
+/* 工具栏 */
+.info-bar{
+	width: 20%;
+	height: 100%;
+	background-color: #003D79;
+	border-left: 1px solid #d0d0d0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.info-aggregate{
+	width: 90%;
+	height: 80%;
+}
+
+.info-menu,
+.info-product,
+.info-dashborad{
+	width: 100%;
+	height: 30%;
+	display: flex;
+	flex-direction: column;
+	margin-top: 20px;
+	border-bottom: 1px solid #6C6C6C;
+}
+
+.menu-content{
+	display: flex;
+	flex-direction: row;
+	height: 16%;
+	font-size: 10px;
+	color: 	#d0d0d0;
+}
+
+.menu-content img{
+	width: 25px;
+}
+
+.i-font{
+	font-size: 16px;
+	color: #E0E0E0;
+}
+
+.i-font,
+.i-icon{
+	width: 50%;
+}
+
+.i-icon{
+	display: flex;
+	justify-content: flex-end;
+	cursor: pointer;
+}
+
+.menu-icon{
+	width: 16px;
+}
+
+.info-dashborad{
+	overflow: scroll;
+}
+.info-dashborad::-webkit-scrollbar {
+	display:none
+}
