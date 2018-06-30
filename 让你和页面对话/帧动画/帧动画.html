@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<title>帧动画</title>
+	<meta charset="utf-8">
+
+	<style type="text/css">
+		*{
+			margin: 0px;
+			padding: 0px;
+		}
+		.ani{
+			border: 1px solid black;
+			width: 500px;
+			height: 480px;
+			max-width: 500px;
+			max-height: 480px;
+			margin: 10px auto;
+			background-image: url('images/ani.jpg');
+			background-repeat: repeat-y;
+			background-position: 0 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="ani">
+		
+	</div>
+
+	<script type="text/javascript">
+		var aniPosition = document.querySelector('.ani');
+		var i=0;
+
+		function changeImage(){
+			i += -480;
+			aniPosition.style.backgroundPosition = "0px " + i + "px";
+		}
+
+		function start(){
+			setInterval('changeImage()', 100);
+
+		}
+
+
+		window.onload = function(){
+			start();
+		}
+	</script>
+</body>
+</html>

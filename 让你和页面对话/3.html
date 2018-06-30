@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		#fade-obj{
+			transition: all 2s;
+			-webkit-transition: all 2s;
+			-moz-transition: all 2s;
+		}
+
+		.outOp{
+			opacity: 0;
+		}
+
+		.inOp{
+			opacity: 1;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="fade-obj" style="width:300px;height:300px;background:#000"></div>
+	<button id="fade-btn">淡出</button>
+
+		<script type="text/javascript">
+			var btn = document.querySelector('#fade-btn');
+			var pic = document.querySelector('#fade-obj');
+
+
+
+
+			function iofunctioin(){
+				if (btn.textContent == '淡出') {
+					pic.className = 'outOp';
+					setTimeout("btn.disabled", 2000);
+					// btn.removeAttribute('disabled');
+					btn.textContent = '淡入';
+				}else if (btn.textContent == '淡入') {
+					pic.className = 'inOp';
+					btn.removeAttribute('disabled');
+					btn.textContent = '淡出';
+				}
+			}
+
+			window.onload = function(){
+				btn.addEventListener('click', function(e){
+					setTimeout('iofunctioin()', 500);
+				});
+			}
+		</script>
+</body>
+</html>
