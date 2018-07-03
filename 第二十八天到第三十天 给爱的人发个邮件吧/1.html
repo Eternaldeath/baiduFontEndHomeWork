@@ -1,0 +1,76 @@
+<!--
+1.document.body.contains(Node):用于判断页面是否存在某个结点
+  -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		*{
+			margin: 0px;
+			padding: 0px;
+		}
+
+		.wrapper{
+			width: 165px;
+		}
+
+		#email-sug-wrapper{
+			font-size: 12px;
+		}
+
+		#email-sug-wrapper li{
+			padding-left: 5px;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+	    <input id="email-input" type="text">
+	    <ul id="email-sug-wrapper" class="email-sug"></ul>
+	</div>
+
+	<script type="text/javascript">
+		var postfixList = ['@163.com', '@gmail.com', '@126.com', '@qq.com', '@263.net'];
+		var emailInput = document.querySelector('#email-input');
+		var emailSugWrapper = document.querySelector('#email-sug-wrapper');
+		var li;
+		var spanOne;
+		var spanTwo;
+		
+
+
+// 显示下拉邮箱选项
+		function showUl(){
+			if( emailInput.value != '' && !document.body.contains(li)){
+				emailSugWrapper.style.cssText = 'border:1px solid #ADADAD;border-top:none;color:#ADADAD';
+				for(var i=0;i<5;i++){
+					li = document.createElement('li');
+					spanOne = document.createElement('span');
+					spanTwo = document.createElement('span');
+
+					emailSugWrapper.appendChild(li);
+					li.appendChild(spanOne);
+					li.appendChild(spanTwo);
+					spanOne.textContent = emailInput.value;
+					spanTwo.textContent = postfixList[i];
+				}
+			}else{
+				for(var i=0;i<5;i++){
+					spanOne.textContent = emailInput.value;
+					spanTwo.textContent = postfixList[i];
+				}
+
+			}
+
+		}
+// 加载
+		window.onload = function(){
+			emailInput.addEventListener('input', function(){
+				showUl();
+			});
+		}
+	</script>
+</body>
+</html>
