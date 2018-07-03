@@ -1,0 +1,146 @@
+<!-- 收获
+	Date()函数是获取当前的时间，所以写一个时钟，就必须实时获得 Date（），就不能单纯的全局获取，而是每次 setInterval 之后都要获取
+ -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.time{
+			display: flex;
+			flex-direction: row;
+		}
+
+		p{
+			margin-right: 5px;
+		}
+	</style>
+</head>
+<body onload="start();">
+	<div class="time">
+		<p>今天是</p>
+		<p class="year"></p>
+		<p class="month"></p>
+		<p class="day"></p>
+		<p class="weekday"></p>
+		<p class="hour"></p>
+		<p class="minute"></p>
+		<p class="second"></p>
+	</div>
+
+<script type="text/javascript">
+		var year  = document.querySelector('.year');
+		var weekday = document.querySelector('.weekday');
+		var month = document.querySelector('.month');
+		var day = document.querySelector('.day');
+		var hour = document.querySelector('.hour');
+		var minute = document.querySelector('.minute');
+		var second = document.querySelector('.second');
+//获取当前时间
+
+
+
+
+// 获取YYYY 年  
+	function getYear(){
+		var d = new Date();
+		var y = d.getFullYear();
+		year.innerHTML = y + '年';
+	}
+//获取xx月
+	function getMonth(){
+		var d = new Date();
+		var m = d.getMonth();
+		if( m/10 <1){
+			month.innerHTML = '0'+m + '月';
+		}else{
+			month.innerHTML = m + '月';
+		}
+		
+	}
+
+// 获取dd日
+	function  getDay(){
+		var d = new Date();
+		var ds = d.getDate();
+		if( ds/10 <1){
+			day.innerHTML = '0'+ds + '号';
+		}else{
+			day.innerHTML = ds + '号';
+		}
+	} 
+
+// 获取星期几
+	function getWeek(){
+		var d = new Date();
+		var week = ['星期天','星期一','星期二','星期三','星期四','星期五','星期六'];
+		var w = d.getDay();
+		weekday.innerHTML = week[w];
+	}
+
+// 获取某时
+	function getHour(){
+		var d = new Date();
+		var h = d.getHours();
+		var h = h + 1;
+		if(h/10 < 1){
+			hour.innerHTML = '0'+h+'点';
+		}else{
+			hour.innerHTML = h+'点';
+		}
+	}
+
+// 获取某分钟
+	function getMinute(){
+		var d = new Date();
+		var mi = d.getMinutes();
+		var mi = mi + 1;
+		if(mi/10 < 1){
+			minute.innerHTML = '0'+mi+'分';
+		}else{
+			minute.innerHTML = mi+'分';
+		}
+	}
+
+// 获取某秒钟
+	function getSecond(){
+		var d = new Date();
+		var s = d.getSeconds();
+		var s = s + 1;
+		if(s/10 <1){
+			second.innerHTML = '0'+s+'秒';
+		}else{
+			second.innerHTML = s+'秒';
+		}
+	}
+
+// 初始化
+	function init(){
+		getYear();
+		getMonth();
+		getDay();
+		getWeek();
+		getHour();
+		getMinute();
+		getSecond();
+	}
+
+
+	// 启动加载
+	function start(){
+		window.setInterval('init()',1000);
+	}
+
+window.onload = function(){
+
+	start();
+}
+
+
+
+</script>
+
+</body>
+</html>

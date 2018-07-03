@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>日期计算器</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatable" content="IE=Edge">
+</head>
+<body>
+    <div class="container">
+        <div class="first-date">
+            <label><input type="text" name="" placeholder="现在的年份-只用输入数字" id="nowYear"></label>
+            <label><input type="text" name="" placeholder="现在的月份-只用输入数字" id="nowMonth"></label>
+            <label><input type="text" name="" placeholder="现在几号-只用输入数字" id="nowDay"></label>
+        </div>
+        <div class="last-date">
+            <label><input type="text" name="" placeholder="未来的年份-只用输入数字" id="futureYear"></label>
+            <label><input type="text" name="" placeholder="未来的月份-只用输入数字" id="futureMonth"></label>
+            <label><input type="text" name="" placeholder="未来几号-只用输入数字" id="futureDat"></label>            
+        </div>
+        <button id="haveDay">还剩多少天</button>
+        <p class="showDay"></p>
+    </div>
+
+    <script type="text/javascript">
+        var nowYear = document.querySelector('#nowYear');
+        // nowYear = parseInt(nowYear);
+        var nowMonth = document.querySelector('#nowMonth').value;
+        nowMonth = parseInt(nowMonth);
+        var nowDay = document.querySelector('#nowDay').value;
+        nowDay = parseInt(nowDay);
+        var futureYear = document.querySelector('#futureYear').value;
+        futureYear = parseInt(futureYear);
+        var futureMonth = document.querySelector('#futureMonth').value;
+        futureMonth = parseInt(futureMonth);
+        var futureDay = document.querySelector('#futureDat').value;
+        futureDay = parseInt(futureDay);
+
+        var haveDay = document.querySelector('#haveDay');
+        var showDay = document.querySelector('.showDay');
+        var sumTime = 0;
+        var monthTable = [31,28,31,30,31,30,31,31,30,31,30,31];
+
+        haveDay.addEventListener('click', function(){
+            if(futureYear - nowYear >= 0){
+                var yearGap = futureYear - nowYear;
+                sumTime = yearGap * 356;
+            }else{
+                alert("请输入正确的年份");
+            }
+
+            if(futureMonth - nowMonth >= 0){
+                for(var i=nowMonth-1;i<futureMonth-1;i++){
+                    sumTime += monthTable[nowMonth-1];
+                }
+            }else{
+                alert("请输入正确的月份");
+            }
+
+            if(futureDay - nowDay >= 0){
+                var dayGap = futureDay - nowDay;
+                sumTime += dayGap; 
+            }
+
+            showDay.innerHTML = sumTime;
+
+        });
+    </script>
+</body>
+</html>
