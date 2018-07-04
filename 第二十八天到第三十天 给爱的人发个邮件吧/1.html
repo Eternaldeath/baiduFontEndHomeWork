@@ -1,30 +1,30 @@
-<!--
-1.document.body.contains(Node):用于判断页面是否存在某个结点
-  -->
-
 <!DOCTYPE html>
 <html>
 <head>
 	<title></title>
+</head>
 	<style type="text/css">
 		*{
 			margin: 0px;
 			padding: 0px;
 		}
-
-		.wrapper{
-			width: 165px;
-		}
-
 		#email-sug-wrapper{
-			font-size: 12px;
+			border: 1px solid lightgrey;
+			width: 165px;
+			height: 100px;
+			overflow: hidden;
+			visibility: hidden;
 		}
+
 
 		#email-sug-wrapper li{
-			padding-left: 5px;
+			width: 165px;
+			list-style: none;
+			font-size: 10px;
+			display: flex;
+			flex-wrap: wrap;
 		}
 	</style>
-</head>
 <body>
 	<div class="wrapper">
 	    <input id="email-input" type="text">
@@ -32,44 +32,78 @@
 	</div>
 
 	<script type="text/javascript">
+	//定义变量	
 		var postfixList = ['@163.com', '@gmail.com', '@126.com', '@qq.com', '@263.net'];
-		var emailInput = document.querySelector('#email-input');
-		var emailSugWrapper = document.querySelector('#email-sug-wrapper');
-		var li;
-		var spanOne;
-		var spanTwo;
-		
+		var emailinput = document.querySelector('#email-input');
+		var emailsugWrapper = document.querySelector('#email-sug-wrapper');
+		var liContain = document.querySelectorAll('li');
 
-
-// 显示下拉邮箱选项
-		function showUl(){
-			if( emailInput.value != '' && !document.body.contains(li)){
-				emailSugWrapper.style.cssText = 'border:1px solid #ADADAD;border-top:none;color:#ADADAD';
-				for(var i=0;i<5;i++){
-					li = document.createElement('li');
-					spanOne = document.createElement('span');
-					spanTwo = document.createElement('span');
-
-					emailSugWrapper.appendChild(li);
-					li.appendChild(spanOne);
-					li.appendChild(spanTwo);
-					spanOne.textContent = emailInput.value;
-					spanTwo.textContent = postfixList[i];
-				}
+	// 执行事件-输入
+		emailinput.oninput = function(){
+			// 获取输入框内容
+			var inputContent = getInput();
+			if(inputContent == ''){
+				emailsugWrapper.style.visibility = 'hidden';
+			}else if (inputContent.indexOf(" ") == 0) {
+				emailsugWrapper.style.visibility = 'hidden';
+				alert("请不要键入空格");
 			}else{
-				for(var i=0;i<5;i++){
-					spanOne.textContent = emailInput.value;
-					spanTwo.textContent = postfixList[i];
-				}
-
+			// 显示邮箱提示下拉框
+			showpromtBox();
+			// 生成li dom 并且插入提示内容
+			buildandInsert(inputContent);				
 			}
 
+
 		}
-// 加载
-		window.onload = function(){
-			emailInput.addEventListener('input', function(){
-				showUl();
-			});
+
+
+
+
+		// 显示邮箱提示下拉框
+		function showpromtBox(){
+			emailsugWrapper.style.visibility = 'visible';
+		}
+
+		// 获取输入框内容
+		function getInput(){
+			var inputContent = emailinput.value;
+			if(inputContent.indexOf('@') > 0){
+				inputContent = inputContent.replace('@','');
+			}
+			// if(inputContent.indexOf(" ") == 0)
+			// 	{
+			// 		emailsugWrapper.style.visibility = 'hidden';
+			// 		alert("请不要键入空格");
+			// 	}else{
+					var inputContent = inputContent.replace(/\s+/g,"");
+					return inputContent;					
+				// }
+
+
+		}
+
+		// 生成li dom 并且插入提示内容
+		function buildandInsert(inputContent){
+			// liLable 用于后面检测 ul 下是否已经存在 li 使用
+			var liLable = document.querySelector('li');
+			if(!emailsugWrapper.contains(liLable)){
+				for(var i=0;i<5;i++){
+					var li = document.createElement('li');
+					emailsugWrapper.appendChild(li);
+					var lidom = document.querySelectorAll('li');
+					lidom[i].innerHTML = inputContent+postfixList[i];
+				}	
+			}else{
+					var lidom = document.querySelectorAll('li');
+					for(var i=0;i<5;i++){
+						lidom[i].innerHTML = inputContent+postfixList[i];
+					}
+					
+			}
+
+
+			
 		}
 	</script>
 </body>
