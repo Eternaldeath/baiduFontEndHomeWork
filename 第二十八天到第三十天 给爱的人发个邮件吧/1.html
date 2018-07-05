@@ -1,3 +1,11 @@
+<!-- 
+	知识点：
+		执行事件-点击（冒泡流）
+		emailsugWrapper.addEventListener('click', function(e){
+			emailinput.value = e.target.textContent;
+		});
+ -->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,6 +31,11 @@
 			font-size: 10px;
 			display: flex;
 			flex-wrap: wrap;
+			cursor: pointer;
+		}
+
+		#email-sug-wrapper li:hover{
+			background-color: lightblue; 
 		}
 	</style>
 <body>
@@ -38,8 +51,10 @@
 		var emailsugWrapper = document.querySelector('#email-sug-wrapper');
 		var liContain = document.querySelectorAll('li');
 
+
 	// 执行事件-输入
 		emailinput.oninput = function(){
+
 			// 获取输入框内容
 			var inputContent = getInput();
 			if(inputContent == ''){
@@ -51,11 +66,55 @@
 			// 显示邮箱提示下拉框
 			showpromtBox();
 			// 生成li dom 并且插入提示内容
-			buildandInsert(inputContent);				
+			buildandInsert(inputContent);
+
+
+			var liAll = document.querySelectorAll('li');
+			var index = 0;
+			// 键盘事件
+			document.onkeyup = function(e){
+				//火狐中是 window.event
+				if(!e) e = e || window.event;
+				 //方向键上 
+				 for(var i=0;i<liAll.length;i++){
+	           		 liAll[i].style.background='none';
+	          	}
+	          	
+	          	// 如果按下了向下方向键
+	         	 if(e.keyCode==40){
+	             index++;
+	             if(index>4){
+	               index=0;
+	             }
+	             liAll[index].style.background="#ccc";
+	         	}
+
+	         	 // 如果按下了向上方向键
+		         if(e.keyCode==38){
+		            if(index<=0){
+		               index=liAll.length;
+		            }
+		             index--;   
+		             liAll[index].style.background="#ccc";      
+		         }
+		         // 如果按下了回车键
+		          if(e.keyCode==13 && index!=-1){
+		            // for(var i=0;i<liAll.length;i++){
+		            //   liAll[i].style.background='none';
+		            // }
+		            emailsugWrapper.style.visibility = 'hidden';
+		            emailinput.value = liAll[index].textContent;    
+		          }
+
+			}				
 			}
-
-
 		}
+
+	// 执行事件-点击
+		emailsugWrapper.addEventListener('click', function(e){
+			emailinput.value = e.target.textContent;
+		});
+		
 
 
 
@@ -67,17 +126,18 @@
 
 		// 获取输入框内容
 		function getInput(){
-			var inputContent = emailinput.value;
-			if(inputContent.indexOf('@') > 0){
-				inputContent = inputContent.replace('@','');
-			}
+			var inputContent  = emailinput.value;
+			
+			// if(inputContent.indexOf('@') > 0){
+			// 	inputContent = inputContent.replace('@','');
+			// }
 			// if(inputContent.indexOf(" ") == 0)
 			// 	{
 			// 		emailsugWrapper.style.visibility = 'hidden';
 			// 		alert("请不要键入空格");
 			// 	}else{
-					var inputContent = inputContent.replace(/\s+/g,"");
-					return inputContent;					
+			var inputContent = inputContent.replace(/\s+/g,"");
+			return inputContent;					
 				// }
 
 
@@ -96,15 +156,66 @@
 				}	
 			}else{
 					var lidom = document.querySelectorAll('li');
+					if(inputContent.indexOf('@') > 0){
+						 indexLocation = inputContent.indexOf('@')+1;
+					}					
 					for(var i=0;i<5;i++){
-						lidom[i].innerHTML = inputContent+postfixList[i];
-					}
-					
-			}
+						if(inputContent.indexOf('@') > 0){
+							// 输入字符串的长度
+							var indexLength = inputContent.length;
+							// 第一次出现 @ 的位置
+							var indexLocation = inputContent.indexOf('@');
+							var select = indexLength - indexLocation ;
+							// 截取从 @ 开始的字符串
+							var string = inputContent.slice(indexLocation);
+							// 截取原始数组中的字符串
+							select = postfixList[i].slice(0, select);
+							// inputContent = inputContent.replace('@','');
+							// lidom[i].innerHTML = inputContent;
+							
+							if(string == select){
+									lidom[i].style.display = 'block';
+							}else{
+									lidom[i].style.display = 'none';
+							}
 
-
-			
+							
+						}else{
+							lidom[i].innerHTML = inputContent+postfixList[i];
+						}
+						
+					}		
+				}	
 		}
+
+
+
+		// XSS-转义字符 用正则表达式实现html转码
+		// function transcoding(str){
+  //            var s = "";
+  //            if(str.length == 0) return "";
+  //            s = str.replace(/&/g,"&");
+  //            s = s.replace(/</g,"<");
+  //            s = s.replace(/>/g,">");
+  //            s = s.replace(/ /g," ");
+  //            s = s.replace(/\'/g,"'");
+  //            s = s.replace(/\"/g,'"');
+  //            return s; 
+  //        }
+
+        // XSS-转义字符 用正则表达式实现html解码
+       //   function (str){ 
+       //       var s = "";
+       //       if(str.length == 0) return "";
+       //       s = str.replace(/&/g,"&");
+       //       s = s.replace(/</g,"<");
+       //       s = s.replace(/>/g,">");
+       //       s = s.replace(/ /g," ");
+       //       s = s.replace(/'/g,"\'");
+       //       s = s.replace(/"/g,"\"");
+       //       return s; 
+       // }
+
 	</script>
 </body>
 </html>
