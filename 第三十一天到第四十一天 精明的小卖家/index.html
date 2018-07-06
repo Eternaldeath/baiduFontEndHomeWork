@@ -1,0 +1,190 @@
+<!-- 学习知识
+	1.如何获取 select 的选中值
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>我是精明的小卖家</title>
+	<meta charset="utf-8">
+</head>
+<style type="text/css">
+	table{
+		border: 1px solid black;
+
+	}
+
+	td,th{
+		border: 1px solid black;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 50px;
+		height: 25px;
+		font-size: 10px;
+	}
+
+	tr{
+		display: flex;
+		flex-direction: row;
+	}
+</style>
+<body>
+	<label for="areaSelect">地区选择
+		<select id="areaSelect">
+			<option>华东</option>
+			<option>华南</option>
+			<option>华北</option>
+		</select>
+		<select id="speciesSelect">
+			<option>全部</option>
+			<option>手机</option>
+			<option>笔记本</option>
+			<option>智能音箱</option>
+		</select>
+	</label>
+	<label for="monthSelect">月份
+		<select id="monthSelect">
+			<option>一月</option>
+			<option>二月</option>
+			<option>三月</option>
+			<option>三月</option>
+			<option>四月</option>
+			<option>五月</option>
+			<option>六月</option>
+			<option>七月</option>
+			<option>八月</option>
+			<option>九月</option>
+			<option>十月</option> 
+			<option>十一月</option>
+			<option>十二月</option>
+		</select>
+	</label>
+	<p>目前只支持按照顺序进行并集选择，譬如 华南-手机-一月</p>
+	<div class="showDiv">
+
+	</div>
+
+	<!-- 引入外部js -->
+	<script type="text/javascript" src="data.js"></script>
+	<script type="text/javascript">
+
+			
+		//获取变量
+		var areaSelect = document.querySelector('#areaSelect');
+		var speciesSelect = document.querySelector('#speciesSelect');
+		var showDiv = document.querySelector('.showDiv');
+		var tdData = document.querySelectorAll('td');
+		var monthAndOther = ['商品','地区','一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月'];
+		// 创建表格变量
+		var table = document.createElement('table');
+		// 针对内容表单被覆盖的问题设置全局变量
+		var zero = 0;
+		var one = 1;
+		var goods = 2;
+// -----------------------分割线一下是 表头表格的创建 以及二级商品种类刷选（通用）-----------------------------------------------
+		//根据地区展示图表
+		function showByArea(areaText){
+			for(var i=0;i<9;i++){
+				if(sourceData[i].region == areaText){
+					buildTableTr(i);
+				}
+			}
+		}
+
+		// 创建表格和表头
+		function buildTable(){
+			var tr = document.createElement('tr');
+			var index = 0;
+			showDiv.appendChild(table);
+			// 设置单元格空白间距为 0
+			table.cellSpacing = '0';
+			table.appendChild(tr);
+			// 产生14个 th
+			for(var i=0;i<14;i++){
+				var th = document.createElement('th');
+				tr.appendChild(th);
+			}
+			// 装填14个 th
+			var thAll = document.querySelectorAll('th');
+			for(var i=0;i<monthAndOther.length;i++){
+				thAll[i].innerHTML = monthAndOther[index];
+				index++;
+			}
+		}
+
+		// 移除单内容
+		function removeTable(){
+			var table = document.querySelector('table');
+			var trAll = document.querySelectorAll('tr');
+			var tr = document.querySelector('tr');
+			if(table.contains(tr)){
+				for(var i=1;i<trAll.length;i++){
+					table.removeChild(trAll[i]);
+				}
+			}; 
+		}
+
+		// 并集的商品种类筛选
+		function showBySpecies(speciesText){
+
+	
+		}
+// ----------------------------分割线一下 表单内容创建是属于地区选择的--------------------
+
+		// 创建表单内容
+		function buildTableTr(i){
+			var tr = document.createElement('tr');			
+			table.appendChild(tr);
+			for(var j=0;j<14;j++){
+				var td = document.createElement('td');	
+				tr.appendChild(td);
+			}
+			var tdAll = document.querySelectorAll('td');
+			// 插入静态数据
+			// 	先获取前两个非数组内容
+				tdAll[zero].innerHTML = sourceData[i].product; 
+				tdAll[one].innerHTML = sourceData[i].region; 
+			for(var x=0;x<12;x++){
+				tdAll[goods].innerHTML = sourceData[i].sale[x];
+				goods++;
+			}
+
+			zero += 14;
+			one += 14;
+			goods += 2;
+		
+		}
+
+// -----------------------------分隔线以下是初始化----------------------------
+		// 加载数据
+		window.onload = function(){
+			// 创建表格
+			buildTable();
+			// 此处最好用 onclick 事件，因为 onchange 事件第一次无法触发第一个元素选项
+			areaSelect.onclick = function(){
+				// 每次变更，重设初始值
+				zero = 0;
+				one = 1;
+				goods = 2;
+				// 检查是否存在表格，若存在则移除
+				removeTable();
+				var index = areaSelect.selectedIndex;
+				// options 是 option 选项
+				var areaText = areaSelect.options[index].textContent; 
+				showByArea(areaText);
+			}
+
+			speciesSelect.onclick = function(){
+				// 检查是否存在表格，若存在则移除
+				removeTable();
+				var index = speciesSelect.selectedIndex;
+				var speciesText = speciesSelect.options[index].textContent;
+				showBySpecies(speciesText);
+			}
+
+
+		}	
+
+	</script>
+</body>
+</html>
