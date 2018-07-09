@@ -24,37 +24,18 @@
 			var goods = 2;
 			for(var i=0;i<9;i++){
 				for(var j=0;j<arrayCheck.length;j++){
+					// 如果是地区先被选择
 					if(sourceData[i].region == arrayCheck[j]){
 						for(var z=0;z<arrayChecksecond.length;z++){
+							// 检查产品被选择
 							if(sourceData[i].product == arrayChecksecond[z]){
 								buildTableTr(i,zero,one,goods);
 								zero += 14;
 								one += 14;
 								goods += 14;							
-							}else{
-								buildTableTr(i,zero,one,goods);
-								zero += 14;
-								one += 14;
-								goods += 14;								
-							}							
+							}						
 						}
-
-					}else if (sourceData[i].product == arrayChecksecond[j]) {
-						for(var z=0;z<arrayChecksecond.length;z++){
-							if(sourceData[i].region == arrayCheck[z]){
-								buildTableTr(i,zero,one,goods);
-								zero += 14;
-								one += 14;
-								goods += 14;							
-							}else{
-								buildTableTr(i,zero,one,goods);
-								zero += 14;
-								one += 14;
-								goods += 14;								
-							}								
-						}
-						
-						}						
+					}					
 					}
 				}
 			}
@@ -96,51 +77,22 @@
 
 		// 检查有哪些选项被点击
 		function checkout(){
-			// 每次都将 arrayCheck 置空
+			// 每次都将 array 置空
 			arrayCheck = [];
 			arrayChecksecond = [];
-			// 判断是否全选
-			if(areaSelectInput[3].checked){
-				if (areaSelectInput[3].checked) {
-					for(var i=0;i<3;i++){
-						arrayCheck.push(areaSelectInput[i].value);
-						areaSelectInput[i].checked = 1;
-					}					
-				}else{
-					arrayCheck = [];
-					for(var i=0;i<=3;i++){
-						areaSelectInput[i].checked = 0;					
-					}
+
+			for(var i=0;i<3;i++){
+				if(areaSelectInput[i].checked){
+					arrayCheck.push(areaSelectInput[i].value);	
 				}
-			}else{
-				for(var i=0;i<3;i++){
-					if (areaSelectInput[i].checked) {
-						arrayCheck.push(areaSelectInput[i].value);							
-					}
-				}								
 			}
 
-			if(kindSelectInput[3].checked){
-				if (kindSelectInput[3].checked) {
-					for(var i=0;i<3;i++){
-						arrayChecksecond.push(kindSelectInput[i].value);
-						kindSelectInput[i].checked = 1;
-					}					
-				}else{
-					arrayChecksecond = [];
-					for(var i=0;i<=3;i++){
-						kindSelectInput[i].checked = 0;					
-					}
+			for(var i=0;i<3;i++){
+				if(kindSelectInput[i].checked){
+					arrayChecksecond.push(kindSelectInput[i].value);
+					
 				}
-			}else{
-				for(var i=0;i<3;i++){
-					if (kindSelectInput[i].checked) {
-						arrayChecksecond.push(kindSelectInput[i].value);							
-					}
-				}								
 			}
-
-
 		}
 // ----------------------------分割线一下 表单内容创建是属于地区选择的--------------------
 
