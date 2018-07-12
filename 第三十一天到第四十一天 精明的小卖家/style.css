@@ -1,3 +1,8 @@
+body{
+	display: flex;
+	flex-direction: column;
+}
+
 table{
 		border: 1px solid black;
 
@@ -20,4 +25,10 @@ tr{
 
 .labelStyle{
 	display: block;
+}
+
+#canvasLine{
+	width: 600px;
+	height: 300px;
+	margin: 0px auto;
 }

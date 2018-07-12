@@ -136,38 +136,3 @@
 // -----------------------------分割线一下 表单内容创建是属于商品种类选择的--------
 
 // -----------------------------分隔线以下是初始化----------------------------
-		// 加载数据
-		window.onload = function(){
-			// 创建表格
-			buildTable();
-			// 此处最好用 onclick 事件，因为 onchange 事件第一次无法触发第一个元素选项
-			kindSelect.onclick = function(){
-				// 每次变更，重设初始值
-				var zero = 0;
-				var one = 1;
-				var goods = 2;
-				// 检查是否存在表格，若存在则移除
-				removeTable();
-				// 检查有哪些选项被点击了
-				checkout();
-				// 展示出来
-				showByArea();
-			};
-
-			areaSelect.onclick = function(){
-				// 每次变更，重设初始值
-				var zero = 0;
-				var one = 1;
-				var goods = 2;
-				// 检查是否存在表格，若存在则移除
-				removeTable();
-				// 检查有哪些选项被点击了
-				checkout();
-				// 展示出来
-				showByArea();
-			};
-
-
-
-
-		}	
