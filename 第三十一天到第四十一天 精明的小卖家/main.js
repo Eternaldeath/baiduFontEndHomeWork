@@ -104,15 +104,30 @@
 				var td = document.createElement('td');	
 				tr.appendChild(td);
 			}
+			
+			
 			var tdAll = document.querySelectorAll('td');
-			// 插入静态数据
-			// 	先获取前两个非数组内容
+			// 判断是否已经有数据了
+			if(window.localStorage){
 				tdAll[zero].innerHTML = sourceData[i].product; 
 				tdAll[one].innerHTML = sourceData[i].region; 
-			for(var x=0;x<12;x++){
-				tdAll[goods].innerHTML = sourceData[i].sale[x];
-				goods++;
-			}		
+				for(var x=0;x<12;x++){
+					tdAll[goods].innerHTML = sourceData[i].sale[x];
+					tdAll[x+2].setAttribute('contenteditable', 'true');
+					goods++;
+				}									
+			}else{
+				// 插入静态数据
+				// 	先获取前两个非数组内容
+					tdAll[zero].innerHTML = sourceData[i].product; 
+					tdAll[one].innerHTML = sourceData[i].region; 
+				for(var x=0;x<12;x++){
+					tdAll[goods].innerHTML = sourceData[i].sale[x];
+					tdAll[x+2].setAttribute('contenteditable', 'true');
+					goods++;
+				}				
+			}
+		
 		}
 
 		// 创建表单内容 -- 全部

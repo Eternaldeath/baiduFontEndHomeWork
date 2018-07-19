@@ -6,9 +6,24 @@
 			var productTrAll = document.querySelectorAll('.showDiv tr');
 			var productTdAll = document.querySelector('.showDiv td');
 			var showDiv = document.querySelector('.showDiv');
+
+			var save = document.querySelector('#save');
+			var clear = document.querySelector("#clear");
+
+
 			showDiv.onclick = function(e){
 				mouse(e);
 			}
+
+			// 保存数据
+			save.addEventListener('click', function(){
+				saveData();
+			});
+
+			// 清除数据
+			clear.addEventListener('click', function(){
+				myclear();
+			});
  
 				
 				

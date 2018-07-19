@@ -32,3 +32,10 @@ tr{
 	height: 300px;
 	margin: 0px auto;
 }
+
+
+#save,#clear{
+	width: 100px;
+	margin: 0 auto;
+	margin-top: 5px;
+}
