@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<button id="a">a</button>
+	<button id="b">b</button>
+	<button id="c">c</button>
+
+	<div id="cont"></div>
+
+	<script type="text/javascript">
+		var button = document.querySelectorAll('button');
+		var body = document.querySelector('body');
+		var cont = document.querySelector('#cont');
+
+		body.addEventListener('click', function(e){
+			for(var i=0;i<button.length;i++){
+				var id = e.target.getAttribute('id');
+				e.target.setAttribute('location.hash', id);
+				var  text = e.target.textContent;
+				cont.innerHTML = text;
+			}
+		});
+
+	</script>
+</body>
+</html>
